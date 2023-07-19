@@ -2,6 +2,16 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24"></main>
+    <section className="w-full h-full flex-center flex-col mt-20">
+      <h1 className="head_text text-center">
+        All in one
+        <br className="max-md:hidden" />
+        <span className="green_gradient">Net Worth Tracker</span>
+      </h1>
+      <p className="desc text-center">
+        Networth.io is an open-source personal finance tool that makes a
+        streamlined process of checking your assets, liabitlites and net worth
+      </p>
+    </section>
   );
 }

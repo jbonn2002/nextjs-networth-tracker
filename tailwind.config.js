@@ -20,6 +20,7 @@ module.exports = {
     },
     extend: {
       colors: {
+        bgGray: "hsl(240, 3.7%, 15.9%)",
         tremor: {
           brand: {
             faint: "#eff6ff", // blue-50

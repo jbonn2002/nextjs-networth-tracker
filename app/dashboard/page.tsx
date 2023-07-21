@@ -6,8 +6,8 @@ import DashboardNetworth from "@/components/DashboardNetworth";
 
 const page = () => {
   return (
-    <div className="">
-      <div className="relative bg-white w-full h-fit p-4 rounded-lg space-y-6">
+    <div className="text-white">
+      <div className="relative w-full h-fit p-4 rounded-lg space-y-6">
         <div className="flex justify-between items-center">
           <h1 className="text-xl font-semibold">Dashboard</h1>
         </div>

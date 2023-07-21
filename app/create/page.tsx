@@ -20,8 +20,8 @@ const page = () => {
     //     <CreateForm />
     //   </div>
     // </div>
-    <>
-      <div className="relative bg-white w-full h-fit p-4 rounded-lg space-y-6">
+    <div className="text-white">
+      <div className="relative w-full h-fit p-4 space-y-6">
         <h1 className="text-xl font-semibold">Create asset/liability</h1>
       </div>
 
@@ -36,7 +36,7 @@ const page = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

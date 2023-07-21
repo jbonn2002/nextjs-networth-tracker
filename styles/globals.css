@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: 240 3.7% 15.9%;
     --foreground: 222.2 84% 4.9%;
 
     --muted: 210 40% 96.1%;
@@ -68,6 +68,7 @@
   }
   * {
     @apply border-border;
+    /* @apply text-white; */
   }
   body {
     @apply bg-background text-foreground;
@@ -79,11 +80,11 @@
 }
 
 .head_text {
-  @apply mt-5 text-5xl font-extrabold leading-[1.15] text-black sm:text-6xl;
+  @apply mt-5 text-5xl font-extrabold leading-[1.15] sm:text-6xl;
 }
 
 .desc {
-  @apply mt-5 text-lg text-gray-600 sm:text-xl max-w-2xl;
+  @apply mt-5 text-lg sm:text-xl max-w-2xl;
 }
 
 .flex-center {

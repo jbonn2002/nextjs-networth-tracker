@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/Button";
+import { Button, buttonVariants } from "@/components/ui/Button";
 import {
   Form,
   FormControl,
@@ -68,7 +68,11 @@ const CreateForm = () => {
             <FormItem>
               <FormLabel>Name</FormLabel>
               <FormControl>
-                <Input placeholder="Name" {...field} className="pl-6" />
+                <Input
+                  placeholder="Name"
+                  {...field}
+                  className="pl-6 placeholder:text-green-400"
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -82,7 +86,11 @@ const CreateForm = () => {
             <FormItem>
               <FormLabel>Email</FormLabel>
               <FormControl>
-                <Input placeholder="Email" {...field} className="pl-6" />
+                <Input
+                  placeholder="Email"
+                  {...field}
+                  className="pl-6 placeholder:text-green-400"
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -110,6 +118,10 @@ const CreateForm = () => {
             // isLoading={isLoading}
             disabled={input.length === 0}
             onClick={() => {}}
+            className={buttonVariants({
+              variant: "outline",
+              className: "text-green-400 bg-black border-none",
+            })}
           >
             Create asset/liability
           </Button>

@@ -13,14 +13,20 @@ const GetStarted = async () => {
         {session?.user ? (
           <Link
             href="/profile"
-            className={buttonVariants({ className: "text-green-400 bg-black" })}
+            className={buttonVariants({
+              variant: "outline",
+              className: "text-green-400 bg-black border-none",
+            })}
           >
             Get Started
           </Link>
         ) : (
           <Link
             href="/sign-in"
-            className={buttonVariants({ className: "text-green-400 bg-black" })}
+            className={buttonVariants({
+              variant: "outline",
+              className: "text-green-400 bg-black border-none",
+            })}
           >
             Get Started
           </Link>

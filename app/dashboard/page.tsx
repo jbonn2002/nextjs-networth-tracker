@@ -1,5 +1,6 @@
 "use client";
 
+import Dashboard from "@/components/Dashboard";
 import DashboardCard from "@/components/DashboardCard";
 import DashboardChart from "@/components/DashboardChart";
 import DashboardNetworth from "@/components/DashboardNetworth";
@@ -14,9 +15,7 @@ const page = () => {
 
         <hr className="bg-zinc-500 h-px" />
 
-        <DashboardCard />
-        <DashboardChart />
-        <DashboardNetworth />
+        <Dashboard />
       </div>
     </div>
   );

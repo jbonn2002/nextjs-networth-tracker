@@ -12,7 +12,7 @@ const GetStarted = async () => {
       <div className="mt-16 mx-auto w-full max-w-xl flex justify-center items-center gap-2">
         {session?.user ? (
           <Link
-            href="/profile"
+            href="/dashboard"
             className={buttonVariants({
               variant: "outline",
               className: "text-green-400 bg-black border-none",

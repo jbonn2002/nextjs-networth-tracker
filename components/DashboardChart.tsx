@@ -38,7 +38,7 @@ function sumArray(array: any[], metric: string) {
   );
 }
 
-export default function Example() {
+const DashboardChart = () => {
   return (
     <Card className="p-0">
       <TabGroup>
@@ -85,4 +85,6 @@ export default function Example() {
       </TabGroup>
     </Card>
   );
-}
+};
+
+export default DashboardChart;

@@ -1,126 +1,65 @@
-"use client";
-
 import {
-  BarList,
+  AreaChart,
+  BadgeDelta,
   Card,
+  DeltaType,
+  Flex,
   Metric,
-  Tab,
-  TabGroup,
-  TabList,
-  TabPanel,
-  TabPanels,
   Text,
 } from "@tremor/react";
-import React, { useState } from "react";
 
-const runners = [
-  {
-    id: 1,
-    name: "Assets",
-    data: [
-      { name: "Stocks/Bonds", value: 45 },
-      { name: "Checking", value: 35 },
-      { name: "Savings", value: 71 },
-      { name: "Real estate", value: 120 },
-      { name: "Autos", value: 91 },
-    ],
-  },
-  {
-    id: 2,
-    name: "Liabilities",
-    data: [
-      { name: "Consumer debt", value: 15 },
-      { name: "Personal loans", value: 35 },
-      { name: "Student loans", value: 71 },
-      { name: "Mortgages", value: 120 },
-      { name: "Auto loans", value: 41 },
-    ],
-  },
-  {
-    id: 3,
-    name: "Networth",
-    data: [
-      { name: "Assets", value: 28 },
-      { name: "Liabilities", value: 29 },
-      { name: "Total debt", value: 23 },
-    ],
-  },
-];
+import { FC } from "react";
 
-const valueFormatter = (number: number) =>
-  `${Intl.NumberFormat("us").format(number).toString()}h`;
+export type DashboardCardType = {
+  title: string;
+  metric: string;
+  metricPrev: string;
+  delta: string;
+  deltaType: DeltaType;
+  data: any[];
+  categories: string[];
+};
 
-const DashboardCard = () => {
-  const [selectedIndex, setSelectedIndex] = useState<number>();
+const dataFormatter = (number: number) => {
+  return "$ " + Intl.NumberFormat("us").format(number).toString();
+};
+const numberFormatter = (value: number) =>
+  Intl.NumberFormat("us").format(value).toString();
 
-  const headings = runners.map((runner, index) => (
-    <Tab key={index}>{runner.name}</Tab>
-  ));
+const DashboardCard: FC<DashboardCardType> = ({ ...item }) => {
+  let data = item.data;
+  console.log(data);
 
   return (
-    <Card>
-      <Text>Activity Summary</Text>
-      <Metric className="mt-2">$355,652</Metric>
-      <TabGroup index={selectedIndex} onIndexChange={setSelectedIndex}>
-        <TabList variant="line">{headings}</TabList>
-        <TabPanels>
-          <TabPanel>
-            <div
-              className="relative border pl-2 py-2 pr-4 border-dashed rounded-lg
-                                border-slate-400"
-            >
-              <div
-                className="absolute top-0 right-2.5 px-2 -translate-y-1/2 bg-white text-sm
-                                    font-normal text-slate-400"
-              >
-                BarList
-              </div>
-              <BarList
-                data={runners.filter((runner) => runner.id === 1)[0].data}
-                valueFormatter={valueFormatter}
-                showAnimation={false}
-              />
-            </div>
-          </TabPanel>
-          <TabPanel>
-            <div
-              className="relative border pl-2 py-2 pr-4 border-dashed rounded-lg
-                                border-slate-400"
-            >
-              <div
-                className="absolute top-0 right-2.5 px-2 -translate-y-1/2 bg-white text-sm
-                                    font-normal text-slate-400"
-              >
-                BarList
-              </div>
-              <BarList
-                data={runners.filter((runner) => runner.id === 2)[0].data}
-                valueFormatter={valueFormatter}
-                showAnimation={false}
-              />
-            </div>
-          </TabPanel>
-          <TabPanel>
-            <div
-              className="relative border pl-2 py-2 pr-4 border-dashed rounded-lg
-                                border-slate-400"
-            >
-              <div
-                className="absolute top-0 right-2.5 px-2 -translate-y-1/2 bg-white text-sm
-                                    font-normal text-slate-400"
-              >
-                BarList
-              </div>
-              <BarList
-                data={runners.filter((runner) => runner.id === 3)[0].data}
-                valueFormatter={valueFormatter}
-                showAnimation={false}
-              />
-            </div>
-          </TabPanel>
-        </TabPanels>
-      </TabGroup>
-    </Card>
+    <div>
+      <Card key={item.title}>
+        <Flex alignItems="start">
+          <Text>{item.title}</Text>
+          <BadgeDelta deltaType={item.deltaType}>{item.delta}</BadgeDelta>
+        </Flex>
+        <Flex
+          className="space-x-3 truncate"
+          justifyContent="start"
+          alignItems="baseline"
+        >
+          <Metric>{item.metric}</Metric>
+          <Text>from {item.metricPrev}</Text>
+        </Flex>
+        <AreaChart
+          className="mt-6 h-28"
+          data={item.data}
+          index="Month"
+          valueFormatter={numberFormatter}
+          categories={item.categories}
+          colors={["blue"]}
+          showXAxis={true}
+          showGridLines={false}
+          startEndOnly={true}
+          showYAxis={false}
+          showLegend={false}
+        />
+      </Card>
+    </div>
   );
 };
 

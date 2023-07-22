@@ -28,7 +28,6 @@ const numberFormatter = (value: number) =>
 
 const DashboardCard: FC<DashboardCardType> = ({ ...item }) => {
   let data = item.data;
-  console.log(data);
 
   return (
     <div>

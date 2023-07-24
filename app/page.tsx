@@ -1,5 +1,6 @@
 import FrontPageChart from "@/components/FrontPageChart";
 import GetStarted from "@/components/GetStarted";
+import { getAuthSession } from "@/lib/auth";
 import Image from "next/image";
 
 export default function Home() {

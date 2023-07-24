@@ -1,9 +1,6 @@
 "use client";
 
 import Dashboard from "@/components/Dashboard";
-import DashboardCard from "@/components/DashboardCard";
-import DashboardChart from "@/components/DashboardChart";
-import DashboardNetworth from "@/components/DashboardNetworth";
 
 const page = () => {
   return (

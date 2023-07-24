@@ -17,13 +17,15 @@ export default function FrontPageChart() {
         <Flex alignItems="start">
           <div>
             <Text>Assets</Text>
-            <Metric>$ 120,699</Metric>
+            <Metric>$120,699</Metric>
           </div>
-          <BadgeDelta deltaType="moderateIncrease">13.2%</BadgeDelta>
+          <BadgeDelta deltaType="moderateIncrease" className="pr-2">
+            13.2%
+          </BadgeDelta>
         </Flex>
         <Flex className="mt-4">
-          <Text className="truncate">68% ($ 149,940)</Text>
-          <Text>$ 220,500</Text>
+          <Text className="truncate">68% ($149,940)</Text>
+          <Text>$220,500</Text>
         </Flex>
         <ProgressBar value={15.9} className="mt-2" />
       </Card>
@@ -31,13 +33,13 @@ export default function FrontPageChart() {
         <Flex alignItems="start">
           <div>
             <Text>Liabilities</Text>
-            <Metric>$ 20,699</Metric>
+            <Metric>$20,699</Metric>
           </div>
           <BadgeDelta deltaType="moderateDecrease">3.2%</BadgeDelta>
         </Flex>
         <Flex className="mt-4">
-          <Text className="truncate">34% ($ 149,940)</Text>
-          <Text>$ 220,500</Text>
+          <Text className="truncate">34% ($149,940)</Text>
+          <Text>$220,500</Text>
         </Flex>
         <ProgressBar value={15.9} className="mt-2" />
       </Card>

@@ -15,6 +15,7 @@ import { useForm } from "react-hook-form";
 import SelectMenu from "./SelectMenu";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import CurrencyInput from "react-currency-input-field";
 
 const formSchema = z.object({
   name: z
@@ -29,18 +30,21 @@ const formSchema = z.object({
       message: "Name must be at least 2 characters.",
     })
     .max(50),
-  subject: z
+  description: z
+    .string()
+    .min(2, {
+      message: "Name must be at least 2 characters.",
+    })
+    .max(500),
+  value: z.number().min(1, {
+    message: "Name must be at least 1 characters.",
+  }),
+  type: z
     .string()
     .min(2, {
       message: "Name must be at least 2 characters.",
     })
     .max(50),
-  message: z
-    .string()
-    .min(2, {
-      message: "Name must be at least 2 characters.",
-    })
-    .max(200),
 });
 
 const CreateForm = () => {
@@ -81,13 +85,26 @@ const CreateForm = () => {
 
         <FormField
           control={form.control}
-          name="email"
+          name="type"
+          render={() => (
+            <FormItem>
+              <FormLabel>Type</FormLabel>
+              <FormControl>
+                <SelectMenu />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="description"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Email</FormLabel>
+              <FormLabel>Description</FormLabel>
               <FormControl>
                 <Input
-                  placeholder="Email"
+                  placeholder="Description"
                   {...field}
                   className="pl-6 placeholder:text-green-400"
                 />
@@ -98,12 +115,17 @@ const CreateForm = () => {
         />
         <FormField
           control={form.control}
-          name="subject"
+          name="value"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Subject</FormLabel>
+              <FormLabel>Value</FormLabel>
               <FormControl>
-                <SelectMenu />
+                <CurrencyInput
+                  placeholder="$100,000"
+                  className="flex placeholder:text-green-400 h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                  prefix="$"
+                  decimalsLimit={2}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>

@@ -1,17 +1,16 @@
 import {
   Card,
   Grid,
-  Title,
-  Text,
   Tab,
-  TabList,
   TabGroup,
+  TabList,
   TabPanel,
   TabPanels,
 } from "@tremor/react";
 import DashboardCard from "./DashboardCard";
-import DashboardChart from "./DashboardChart";
 import DashboardNetworth from "./DashboardNetworth";
+import EntryTable from "./EntryTable";
+import { getAuthSession } from "@/lib/auth";
 
 const data = [
   {
@@ -40,7 +39,16 @@ const data = [
   },
 ];
 
-const Dashboard = () => {
+const Dashboard = async () => {
+  const user = [
+    {
+      id: 12345,
+      name: "Test",
+      username: "string",
+      email: "string",
+    },
+  ];
+
   return (
     <main>
       <TabGroup className="mt-6">
@@ -50,7 +58,7 @@ const Dashboard = () => {
         </TabList>
         <TabPanels>
           <TabPanel>
-            <Grid numItemsMd={2} numItemsLg={3} className="gap-6 mt-6">
+            <Grid numItemsMd={1} numItemsLg={3} className="gap-6 mt-6">
               <Card>
                 <DashboardCard
                   title="Networth"
@@ -94,7 +102,7 @@ const Dashboard = () => {
           <TabPanel>
             <div className="mt-6">
               <Card>
-                <div className="h-96" />
+                <EntryTable users={user} />
               </Card>
             </div>
           </TabPanel>

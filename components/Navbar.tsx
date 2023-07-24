@@ -3,6 +3,7 @@ import { Icons } from "./Icons";
 import { buttonVariants } from "./ui/Button";
 import { getAuthSession } from "@/lib/auth";
 import UserAccountNav from "./UserAccountNav";
+import { db } from "@/lib/db";
 
 const Navbar = async () => {
   const session = await getAuthSession();
@@ -14,7 +15,6 @@ const Navbar = async () => {
           <Icons.logo className="h-8 w-8 sm:h-6 sm:w-6" />
           <p className="hidden text-sm font-medium md:block">Networth.io</p>
         </Link>
-
         {session?.user ? (
           <UserAccountNav user={session.user} />
         ) : (

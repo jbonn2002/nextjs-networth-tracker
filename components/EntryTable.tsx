@@ -7,12 +7,14 @@ import {
   TableCell,
   Text,
 } from "@tremor/react";
+import Currency from "./Currency";
 
 interface User {
   id: number;
   name: string;
-  username: string;
-  email: string;
+  type: string;
+  description: string;
+  value: number;
 }
 
 const EntryTable = ({ users }: { users: User[] }) => {
@@ -21,8 +23,9 @@ const EntryTable = ({ users }: { users: User[] }) => {
       <TableHead>
         <TableRow>
           <TableHeaderCell>Name</TableHeaderCell>
-          <TableHeaderCell>Username</TableHeaderCell>
-          <TableHeaderCell>Email</TableHeaderCell>
+          <TableHeaderCell>Type</TableHeaderCell>
+          <TableHeaderCell>Description</TableHeaderCell>
+          <TableHeaderCell>Value</TableHeaderCell>
         </TableRow>
       </TableHead>
       <TableBody>
@@ -30,10 +33,15 @@ const EntryTable = ({ users }: { users: User[] }) => {
           <TableRow key={user.id}>
             <TableCell>{user.name}</TableCell>
             <TableCell>
-              <Text>{user.username}</Text>
+              <Text>{user.type}</Text>
             </TableCell>
             <TableCell>
-              <Text>{user.email}</Text>
+              <Text>{user.description}</Text>
+            </TableCell>
+            <TableCell>
+              <Text>
+                <Currency price={user.value} />
+              </Text>
             </TableCell>
           </TableRow>
         ))}

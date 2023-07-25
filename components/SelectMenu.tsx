@@ -7,12 +7,21 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/Select";
+import { FC } from "react";
 
-const SelectMenu = () => {
+export type SelectMenuType = {
+  onValueChange: any;
+  defaultValue: string;
+};
+
+const SelectMenu: FC<SelectMenuType> = ({ ...props }) => {
   return (
-    <Select>
+    <Select
+      onValueChange={props.onValueChange}
+      defaultValue={props.defaultValue}
+    >
       <SelectTrigger className="w-[180px]">
-        <SelectValue placeholder="Select a type" />
+        <SelectValue placeholder="select type" />
       </SelectTrigger>
       <SelectContent>
         <SelectGroup>

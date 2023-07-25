@@ -36,14 +36,56 @@ model Session {
 }
 
 model User {
-  id                String      @id @default(cuid())
-  name              String?
-  email             String?     @unique
-  emailVerified     DateTime?
+  id            String    @id @default(cuid())
+  name          String?
+  email         String?   @unique
+  emailVerified DateTime?
 
   username String? @unique
 
-  image        String?
-  accounts     Account[]
-  sessions     Session[]
+  image      String?
+  accounts   Account[]
+  sessions   Session[]
+  asset      Asset[]
+  liabilitty Liability[]
+  debt       Debt[]
+}
+
+model Asset {
+  id          String   @id @default(cuid())
+  createdAt   DateTime @default(now())
+  name        String
+  type        Type     @default(Asset)
+  description String
+  value       Int
+  creator     User     @relation(fields: [creatorId], references: [id])
+  creatorId   String
+}
+
+model Liability {
+  id          String   @id @default(cuid())
+  createdAt   DateTime @default(now())
+  name        String
+  type        Type     @default(Liability)
+  description String
+  value       Int
+  creator     User     @relation(fields: [creatorId], references: [id])
+  creatorId   String
+}
+
+model Debt {
+  id          String   @id @default(cuid())
+  createdAt   DateTime @default(now())
+  name        String
+  type        Type     @default(Debt)
+  description String
+  value       Int
+  creator     User     @relation(fields: [creatorId], references: [id])
+  creatorId   String
+}
+
+enum Type {
+  Asset
+  Liability
+  Debt
 }

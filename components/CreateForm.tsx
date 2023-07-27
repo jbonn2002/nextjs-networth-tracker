@@ -16,49 +16,64 @@ import SelectMenu from "./SelectMenu";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import CurrencyInput from "react-currency-input-field";
-
-const formSchema = z.object({
-  name: z
-    .string()
-    .min(2, {
-      message: "Name must be at least 2 characters.",
-    })
-    .max(50),
-  email: z
-    .string()
-    .min(2, {
-      message: "Name must be at least 2 characters.",
-    })
-    .max(50),
-  description: z
-    .string()
-    .min(2, {
-      message: "Name must be at least 2 characters.",
-    })
-    .max(500),
-  value: z.number().min(1, {
-    message: "Name must be at least 1 characters.",
-  }),
-  type: z
-    .string()
-    .min(2, {
-      message: "Name must be at least 2 characters.",
-    })
-    .max(50),
-});
+import { useMutation } from "@tanstack/react-query";
+import axios from "axios";
+import { useToast } from "./ui/use-toast";
+import { formSchema, formSchemaReq } from "@/lib/validators/formSchema";
 
 const CreateForm = () => {
-  const form = useForm<z.infer<typeof formSchema>>({
+  const { toast } = useToast();
+
+  const form = useForm<formSchemaReq>({
     resolver: zodResolver(formSchema),
-    defaultValues: {},
+    defaultValues: {
+      name: "",
+      description: "",
+      type: "",
+      value: "",
+    },
   });
 
   const [input, setInput] = useState<string>("");
   const router = useRouter();
 
+  const { mutate: createItem, isLoading } = useMutation({
+    mutationFn: async ({ name, description, type, value }: formSchemaReq) => {
+      const payload = {
+        name,
+        description,
+        type,
+        value,
+      };
+
+      const { data } = await axios.post("/api/createItem", payload);
+      return data;
+    },
+    onSuccess: (data) => {
+      router.push("/dashboard");
+
+      router.refresh();
+
+      return toast({
+        description: "Congrats",
+        className: "text-green-400 bg-black",
+      });
+    },
+  });
+
+  async function onSubmit(data: formSchemaReq) {
+    const payload: formSchemaReq = {
+      name: data.name,
+      description: data.description,
+      type: data.type,
+      value: data.value,
+    };
+
+    createItem(payload);
+  }
   return (
     <Form {...form}>
-      <form onSubmit={() => {}} className="space-y-6">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
         <div>
           <p className="text-lg font-medium">Name</p>
           <p className="text-xs pb-2">
@@ -86,11 +101,14 @@ const CreateForm = () => {
         <FormField
           control={form.control}
           name="type"
-          render={() => (
+          render={({ field }) => (
             <FormItem>
               <FormLabel>Type</FormLabel>
               <FormControl>
-                <SelectMenu />
+                <SelectMenu
+                  onValueChange={field.onChange}
+                  defaultValue={field.value}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -125,6 +143,8 @@ const CreateForm = () => {
                   className="flex placeholder:text-green-400 h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                   prefix="$"
                   decimalsLimit={2}
+                  onValueChange={field.onChange}
+                  defaultValue={field.value}
                 />
               </FormControl>
               <FormMessage />
@@ -133,13 +153,9 @@ const CreateForm = () => {
         />
 
         <div className="flex justify-end gap-4">
-          <Button variant="ghost" onClick={() => router.back()}>
-            Cancel
-          </Button>
           <Button
-            // isLoading={isLoading}
-            disabled={input.length === 0}
-            onClick={() => {}}
+            type="submit"
+            isLoading={isLoading}
             className={buttonVariants({
               variant: "outline",
               className: "text-green-400 bg-black border-none",

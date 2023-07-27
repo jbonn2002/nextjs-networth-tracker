@@ -43,49 +43,20 @@ model User {
 
   username String? @unique
 
-  image      String?
-  accounts   Account[]
-  sessions   Session[]
-  asset      Asset[]
-  liabilitty Liability[]
-  debt       Debt[]
+  image    String?
+  accounts Account[]
+  sessions Session[]
+
+  Item Item[]
 }
 
-model Asset {
+model Item {
   id          String   @id @default(cuid())
   createdAt   DateTime @default(now())
   name        String
-  type        Type     @default(Asset)
+  type        String
   description String
-  value       Int
+  value       String
   creator     User     @relation(fields: [creatorId], references: [id])
   creatorId   String
-}
-
-model Liability {
-  id          String   @id @default(cuid())
-  createdAt   DateTime @default(now())
-  name        String
-  type        Type     @default(Liability)
-  description String
-  value       Int
-  creator     User     @relation(fields: [creatorId], references: [id])
-  creatorId   String
-}
-
-model Debt {
-  id          String   @id @default(cuid())
-  createdAt   DateTime @default(now())
-  name        String
-  type        Type     @default(Debt)
-  description String
-  value       Int
-  creator     User     @relation(fields: [creatorId], references: [id])
-  creatorId   String
-}
-
-enum Type {
-  Asset
-  Liability
-  Debt
 }

@@ -1,3 +1,5 @@
+"use server";
+
 import {
   Table,
   TableHead,
@@ -8,16 +10,18 @@ import {
   Text,
 } from "@tremor/react";
 import Currency from "./Currency";
+import { db } from "@/lib/db";
+import { getAuthSession } from "@/lib/auth";
 
-interface User {
-  id: number;
-  name: string;
-  type: string;
-  description: string;
-  value: number;
-}
+const EntryTable = async () => {
+  const session = await getAuthSession();
 
-const EntryTable = ({ users }: { users: User[] }) => {
+  const items = await db.item.findMany({
+    where: {
+      creatorId: session?.user.id,
+    },
+  });
+
   return (
     <Table>
       <TableHead>
@@ -29,18 +33,18 @@ const EntryTable = ({ users }: { users: User[] }) => {
         </TableRow>
       </TableHead>
       <TableBody>
-        {users.map((user) => (
-          <TableRow key={user.id}>
-            <TableCell>{user.name}</TableCell>
+        {items.map((item) => (
+          <TableRow key={item.id}>
+            <TableCell>{item.name}</TableCell>
             <TableCell>
-              <Text>{user.type}</Text>
+              <Text>{item.type}</Text>
             </TableCell>
             <TableCell>
-              <Text>{user.description}</Text>
+              <Text>{item.description}</Text>
             </TableCell>
             <TableCell>
               <Text>
-                <Currency price={user.value} />
+                <Currency price={parseInt(item.value)} />
               </Text>
             </TableCell>
           </TableRow>

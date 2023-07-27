@@ -1,3 +1,6 @@
+import { getAuthSession } from "@/lib/auth";
+import { db } from "@/lib/db";
+import { formatTimeToNow } from "@/lib/utils";
 import {
   Card,
   Title,
@@ -8,46 +11,39 @@ import {
   TabGroup,
   TabPanel,
   TabPanels,
+  AreaChart,
 } from "@tremor/react";
+import Test from "./Test";
 
-const data = {
-  relative: [
-    {
-      Date: "01.01.2021",
-      "Customer Churn": 9.73,
-    },
-    {
-      Date: "02.01.2021",
-      "Customer Churn": 10.74,
-    },
-    // ...
-    {
-      Date: "13.03.2021",
-      "Customer Churn": 8.82,
-    },
-    {
-      Date: "25.03.2021",
-      "Customer Churn": 9.73,
-    },
-    {
-      Date: "02.04.2021",
-      "Customer Churn": 10.74,
-    },
-    // ...
-    {
-      Date: "13.04.2021",
-      "Customer Churn": 8.82,
-    },
-  ],
-};
+const dollarFormatter = (value: number) =>
+  `$ ${Intl.NumberFormat("us").format(value).toString()}`;
 
-const valueFormatterRelative = (number: number) =>
-  `${Intl.NumberFormat("us").format(number).toString()}%`;
+const numberFormatter = (value: number) =>
+  `${Intl.NumberFormat("us").format(value).toString()}`;
 
-const valueFormatterAbsolute = (number: number) =>
-  Intl.NumberFormat("us").format(number).toString();
+const formatDate = new Intl.DateTimeFormat("en-US", {
+  month: "short",
+  year: "numeric",
+  day: "numeric",
+});
 
-const DashboardNetworth = () => {
+const DashboardNetworth = async () => {
+  const session = await getAuthSession();
+
+  const items = await db.item.findMany({
+    where: {
+      creatorId: session?.user.id,
+    },
+  });
+
+  const transformedData = items.map((item) => {
+    const date = new Date(item.createdAt);
+    // @ts-ignore
+    item.createdAt = formatDate.format(date);
+
+    return item;
+  });
+
   return (
     <Card>
       <div className="block sm:flex sm:justify-between">
@@ -57,15 +53,12 @@ const DashboardNetworth = () => {
         </div>
       </div>
 
-      <LineChart
+      <AreaChart
         className="mt-8 h-80"
-        data={data.relative}
-        index="Date"
-        categories={["Customer Churn"]}
-        colors={["blue"]}
-        showLegend={false}
-        valueFormatter={valueFormatterRelative}
-        yAxisWidth={40}
+        data={transformedData}
+        categories={["value"]}
+        index="createdAt"
+        valueFormatter={dollarFormatter}
       />
     </Card>
   );

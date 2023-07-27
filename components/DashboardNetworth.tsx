@@ -1,19 +1,8 @@
+"use server";
+
 import { getAuthSession } from "@/lib/auth";
 import { db } from "@/lib/db";
-import { formatTimeToNow } from "@/lib/utils";
-import {
-  Card,
-  Title,
-  Text,
-  LineChart,
-  TabList,
-  Tab,
-  TabGroup,
-  TabPanel,
-  TabPanels,
-  AreaChart,
-} from "@tremor/react";
-import Test from "./Test";
+import { AreaChart, Card, LineChart, Text, Title } from "@tremor/react";
 
 const dollarFormatter = (value: number) =>
   `$ ${Intl.NumberFormat("us").format(value).toString()}`;
@@ -53,12 +42,13 @@ const DashboardNetworth = async () => {
         </div>
       </div>
 
-      <AreaChart
+      <LineChart
         className="mt-8 h-80"
         data={transformedData}
         categories={["value"]}
         index="createdAt"
-        valueFormatter={dollarFormatter}
+        // valueFormatter={dollarFormatter}
+        curveType="monotone"
       />
     </Card>
   );

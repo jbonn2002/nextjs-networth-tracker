@@ -5,21 +5,6 @@ import FrontPageChart from "@/components/FrontPageChart";
 
 const page = () => {
   return (
-    // <div className="container flex items-center h-full max-w-3xl mx-auto">
-    //   <div className="relative bg-white w-full h-fit p-4 rounded-lg space-y-6">
-    //     <div className="flex justify-between items-center">
-    //       <h1 className="text-xl font-semibold">Create asset/liability</h1>
-    //     </div>
-
-    //     <hr className="bg-zinc-500 h-px" />
-
-    //     <div className="flex justify-end">
-    //       <FrontPageChart />
-    //     </div>
-
-    //     <CreateForm />
-    //   </div>
-    // </div>
     <div className="text-white">
       <div className="relative w-full h-fit p-4 space-y-6">
         <h1 className="text-xl font-semibold">Create asset/liability</h1>

@@ -52,6 +52,7 @@ const AssetCard = async () => {
           index="createdAt"
           categories={["value"]}
           colors={["indigo", "cyan"]}
+          autoMinValue={true}
         />
       </Card>
     </div>

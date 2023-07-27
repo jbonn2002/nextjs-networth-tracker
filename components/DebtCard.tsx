@@ -1,5 +1,6 @@
 import { getAuthSession } from "@/lib/auth";
 import { db } from "@/lib/db";
+import { formSchemaReq } from "@/lib/validators/formSchema";
 import {
   AreaChart,
   BadgeDelta,
@@ -52,6 +53,8 @@ const DebtCard = async () => {
           index="createdAt"
           categories={["value"]}
           colors={["indigo", "cyan"]}
+          // valueFormatter={dataFormatter}
+          autoMinValue={true}
         />
       </Card>
     </div>

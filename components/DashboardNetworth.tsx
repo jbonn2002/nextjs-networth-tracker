@@ -1,8 +1,7 @@
-"use server";
-
 import { getAuthSession } from "@/lib/auth";
 import { db } from "@/lib/db";
-import { AreaChart, Card, LineChart, Text, Title } from "@tremor/react";
+import { formSchemaReq } from "@/lib/validators/formSchema";
+import { Card, LineChart, Text, Title } from "@tremor/react";
 
 const dollarFormatter = (value: number) =>
   `$ ${Intl.NumberFormat("us").format(value).toString()}`;
@@ -34,7 +33,7 @@ const DashboardNetworth = async () => {
   });
 
   return (
-    <Card>
+    <Card className="h-[400px]">
       <div className="block sm:flex sm:justify-between">
         <div>
           <Title>Networth</Title>
@@ -49,6 +48,7 @@ const DashboardNetworth = async () => {
         index="createdAt"
         // valueFormatter={dollarFormatter}
         curveType="monotone"
+        maxValue={10000000}
       />
     </Card>
   );

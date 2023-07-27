@@ -7,12 +7,11 @@ import {
   TabPanel,
   TabPanels,
 } from "@tremor/react";
-import DashboardNetworth from "./DashboardNetworth";
-import EntryTable from "./EntryTable";
-import { getAuthSession } from "@/lib/auth";
 import AssetCard from "./AssetCard";
-import LiabilityCard from "./LiabilityCard";
+import DashboardNetworth from "./DashboardNetworth";
 import DebtCard from "./DebtCard";
+import EntryTable from "./EntryTable";
+import LiabilityCard from "./LiabilityCard";
 
 const Dashboard = async () => {
   return (

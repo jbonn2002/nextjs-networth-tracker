@@ -51,7 +51,8 @@ const LiabilityCard = async () => {
           data={transformedData}
           index="createdAt"
           categories={["value"]}
-          colors={["indigo", "cyan"]}
+          colors={["red"]}
+          maxValue={4000000}
         />
       </Card>
     </div>

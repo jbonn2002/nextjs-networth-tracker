@@ -12,6 +12,7 @@ import DashboardNetworth from "./DashboardNetworth";
 import DebtCard from "./DebtCard";
 import EntryTable from "./EntryTable";
 import LiabilityCard from "./LiabilityCard";
+import { getAuthSession } from "@/lib/auth";
 
 const Dashboard = async () => {
   return (

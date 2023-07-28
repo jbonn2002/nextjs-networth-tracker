@@ -1,7 +1,9 @@
 import { getAuthSession } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { formSchemaReq } from "@/lib/validators/formSchema";
-import { Card, LineChart, Text, Title } from "@tremor/react";
+import { Item, ItemPayload } from "@prisma/client";
+import { Card, LineChart, Text, Title, ValueFormatter } from "@tremor/react";
+import { FC } from "react";
 
 const dollarFormatter = (value: number) =>
   `$ ${Intl.NumberFormat("us").format(value).toString()}`;
@@ -45,10 +47,13 @@ const DashboardNetworth = async () => {
         className="mt-8 h-80"
         data={transformedData}
         categories={["value"]}
-        index="createdAt"
-        // valueFormatter={dollarFormatter}
+        index={"createdAt"}
+        // valueFormatter={(value: number) =>
+        //   `$ ${Intl.NumberFormat("us").format(value).toString()}`
+        // }
+        colors={["teal"]}
         curveType="monotone"
-        maxValue={10000000}
+        maxValue={4000000}
       />
     </Card>
   );

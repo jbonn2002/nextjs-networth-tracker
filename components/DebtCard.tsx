@@ -52,9 +52,10 @@ const DebtCard = async () => {
           data={transformedData}
           index="createdAt"
           categories={["value"]}
-          colors={["indigo", "cyan"]}
+          colors={["orange"]}
           // valueFormatter={dataFormatter}
           autoMinValue={true}
+          maxValue={100000}
         />
       </Card>
     </div>

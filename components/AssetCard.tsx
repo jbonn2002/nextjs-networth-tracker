@@ -51,8 +51,9 @@ const AssetCard = async () => {
           data={transformedData}
           index="createdAt"
           categories={["value"]}
-          colors={["indigo", "cyan"]}
+          colors={["green"]}
           autoMinValue={true}
+          maxValue={4000000}
         />
       </Card>
     </div>

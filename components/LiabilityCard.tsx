@@ -52,7 +52,7 @@ const LiabilityCard = async () => {
           index="createdAt"
           categories={["value"]}
           colors={["red"]}
-          maxValue={4000000}
+          maxValue={100000}
         />
       </Card>
     </div>

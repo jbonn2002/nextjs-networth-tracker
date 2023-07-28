@@ -18,6 +18,9 @@ const EntryTable = async () => {
     where: {
       creatorId: session?.user.id,
     },
+    orderBy: {
+      createdAt: "desc",
+    },
   });
 
   return (
@@ -28,6 +31,7 @@ const EntryTable = async () => {
           <TableHeaderCell>Type</TableHeaderCell>
           <TableHeaderCell>Description</TableHeaderCell>
           <TableHeaderCell>Value</TableHeaderCell>
+          <TableHeaderCell>Date created</TableHeaderCell>
         </TableRow>
       </TableHead>
       <TableBody>
@@ -42,8 +46,11 @@ const EntryTable = async () => {
             </TableCell>
             <TableCell>
               <Text>
-                <Currency price={parseInt(item.value)} />
+                <Currency price={+item.value} />
               </Text>
+            </TableCell>
+            <TableCell>
+              <Text>{item.createdAt.toLocaleString()}</Text>
             </TableCell>
           </TableRow>
         ))}

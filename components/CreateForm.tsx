@@ -49,13 +49,13 @@ const CreateForm = () => {
       const { data } = await axios.post("/api/createItem", payload);
       return data;
     },
-    onSuccess: (data) => {
+    onSuccess: (variables) => {
       router.push("/dashboard");
 
       router.refresh();
 
       return toast({
-        description: "Congrats",
+        description: "Created",
         className: "text-green-400 bg-black",
       });
     },

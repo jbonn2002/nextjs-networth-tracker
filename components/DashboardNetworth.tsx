@@ -1,9 +1,6 @@
 import { getAuthSession } from "@/lib/auth";
 import { db } from "@/lib/db";
-import { formSchemaReq } from "@/lib/validators/formSchema";
-import { Item, ItemPayload } from "@prisma/client";
-import { Card, LineChart, Text, Title, ValueFormatter } from "@tremor/react";
-import { FC } from "react";
+import { Card, LineChart, Text, Title } from "@tremor/react";
 
 const dollarFormatter = (value: number) =>
   `$ ${Intl.NumberFormat("us").format(value).toString()}`;
@@ -25,6 +22,8 @@ const DashboardNetworth = async () => {
       creatorId: session?.user.id,
     },
   });
+
+  // console.log(items);
 
   const transformedData = items.map((item) => {
     const date = new Date(item.createdAt);

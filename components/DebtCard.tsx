@@ -40,6 +40,7 @@ const DebtCard = async () => {
 
     return item;
   });
+
   return (
     <div>
       <Card>

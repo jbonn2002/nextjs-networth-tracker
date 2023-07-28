@@ -24,14 +24,14 @@ const EntryTable = async () => {
   });
 
   return (
-    <Table>
+    <Table className="overflow-y-auto max-h-[70vh]">
       <TableHead>
         <TableRow>
-          <TableHeaderCell>Name</TableHeaderCell>
-          <TableHeaderCell>Type</TableHeaderCell>
-          <TableHeaderCell>Description</TableHeaderCell>
-          <TableHeaderCell>Value</TableHeaderCell>
-          <TableHeaderCell>Date created</TableHeaderCell>
+          <TableHeaderCell className="bg-white">Name</TableHeaderCell>
+          <TableHeaderCell className="bg-white">Type</TableHeaderCell>
+          <TableHeaderCell className="bg-white">Description</TableHeaderCell>
+          <TableHeaderCell className="bg-white">Value</TableHeaderCell>
+          <TableHeaderCell className="bg-white">Date created</TableHeaderCell>
         </TableRow>
       </TableHead>
       <TableBody>

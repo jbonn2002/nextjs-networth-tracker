@@ -10,6 +10,7 @@ import {
   Metric,
   Text,
 } from "@tremor/react";
+import Linechart from "./LineChart";
 
 const dataFormatter = (number: number) => {
   return "$ " + Intl.NumberFormat("us").format(number).toString();
@@ -48,7 +49,7 @@ const DebtCard = async () => {
           <Text>Debts</Text>
           <BadgeDelta deltaType="unchanged">12.3%</BadgeDelta>
         </Flex>
-        <AreaChart
+        <Linechart
           className="h-72 mt-4"
           data={transformedData}
           index="createdAt"

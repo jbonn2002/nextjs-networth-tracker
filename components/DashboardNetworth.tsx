@@ -1,6 +1,7 @@
 import { getAuthSession } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { Card, LineChart, Text, Title } from "@tremor/react";
+import Linechart from "./LineChart";
 
 const dollarFormatter = (value: number) =>
   `$ ${Intl.NumberFormat("us").format(value).toString()}`;
@@ -42,17 +43,15 @@ const DashboardNetworth = async () => {
         </div>
       </div>
 
-      <LineChart
+      <Linechart
         className="mt-8 h-80"
         data={transformedData}
         categories={["value"]}
         index={"createdAt"}
-        // valueFormatter={(value: number) =>
-        //   `$ ${Intl.NumberFormat("us").format(value).toString()}`
-        // }
+        // valueFormatter={numberFormatter}
         colors={["teal"]}
-        curveType="monotone"
-        maxValue={4000000}
+        curveType={"monotone"}
+        maxValue={2500000}
       />
     </Card>
   );

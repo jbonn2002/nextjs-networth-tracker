@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer";
 import FrontPageChart from "@/components/FrontPageChart";
 import GetStarted from "@/components/GetStarted";
 import { getAuthSession } from "@/lib/auth";
@@ -16,6 +17,7 @@ export default function Home() {
         streamlined process of checking your assets, liabitlites and net worth
       </p>
       <GetStarted />
+      <Footer />
     </section>
   );
 }

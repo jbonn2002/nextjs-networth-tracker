@@ -40,6 +40,7 @@ const LiabilityCard = async () => {
 
     return item;
   });
+
   return (
     <div>
       <Card>

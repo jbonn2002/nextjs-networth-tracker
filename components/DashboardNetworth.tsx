@@ -1,6 +1,7 @@
-import { getAuthSession } from "@/lib/auth";
-import { db } from "@/lib/db";
-import { Card, LineChart, Text, Title } from "@tremor/react";
+"use client";
+import { useQuery } from "@tanstack/react-query";
+import { Card, Text, Title } from "@tremor/react";
+import axios from "axios";
 import Linechart from "./LineChart";
 
 const dollarFormatter = (value: number) =>
@@ -15,24 +16,16 @@ const formatDate = new Intl.DateTimeFormat("en-US", {
   day: "numeric",
 });
 
-const DashboardNetworth = async () => {
-  const session = await getAuthSession();
-
-  const items = await db.item.findMany({
-    where: {
-      creatorId: session?.user.id,
+const DashboardNetworth = () => {
+  const { data: networth } = useQuery({
+    queryKey: ["networth"],
+    queryFn: async () => {
+      const { data } = await axios.get("/api/networth");
+      return data;
     },
   });
 
-  // console.log(items);
-
-  const transformedData = items.map((item) => {
-    const date = new Date(item.createdAt);
-    // @ts-ignore
-    item.createdAt = formatDate.format(date);
-
-    return item;
-  });
+  console.log(networth);
 
   return (
     <Card>
@@ -45,10 +38,9 @@ const DashboardNetworth = async () => {
 
       <Linechart
         className="mt-8 p-0"
-        data={transformedData}
-        categories={["value"]}
+        data={networth}
+        categories={["networth", "value"]}
         index={"createdAt"}
-        // valueFormatter={numberFormatter}
         colors={["teal"]}
         curveType={"monotone"}
         maxValue={2500000}

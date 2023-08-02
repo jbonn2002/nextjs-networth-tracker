@@ -55,6 +55,7 @@ const LiabilityCard = async () => {
           categories={["value"]}
           colors={["red"]}
           maxValue={100000}
+          curveType={"monotone"}
         />
       </Card>
     </div>

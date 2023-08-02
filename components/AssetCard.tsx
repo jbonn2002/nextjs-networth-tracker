@@ -41,24 +41,23 @@ const AssetCard = async () => {
     return item;
   });
   return (
-    <div>
-      <Card>
-        <Flex alignItems="start">
-          <Text>Assets</Text>
-          <BadgeDelta deltaType="moderateIncrease">12.3%</BadgeDelta>
-        </Flex>
+    <Card>
+      <Flex alignItems="start">
+        <Text>Assets</Text>
+        <BadgeDelta deltaType="moderateIncrease">12.3%</BadgeDelta>
+      </Flex>
 
-        <Linechart
-          className="h-72 mt-4"
-          data={transformedData}
-          index="createdAt"
-          categories={["value"]}
-          colors={["green"]}
-          autoMinValue={true}
-          maxValue={4000000}
-        />
-      </Card>
-    </div>
+      <Linechart
+        className="p-0"
+        data={transformedData}
+        index="createdAt"
+        categories={["value"]}
+        colors={["green"]}
+        autoMinValue={true}
+        maxValue={2500000}
+        curveType={"monotone"}
+      />
+    </Card>
   );
 };
 

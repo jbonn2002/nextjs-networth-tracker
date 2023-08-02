@@ -35,7 +35,7 @@ const DashboardNetworth = async () => {
   });
 
   return (
-    <Card className="h-[400px]">
+    <Card>
       <div className="block sm:flex sm:justify-between">
         <div>
           <Title>Networth</Title>
@@ -44,7 +44,7 @@ const DashboardNetworth = async () => {
       </div>
 
       <Linechart
-        className="mt-8 h-80"
+        className="mt-8 p-0"
         data={transformedData}
         categories={["value"]}
         index={"createdAt"}

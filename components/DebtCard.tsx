@@ -55,6 +55,7 @@ const DebtCard = async () => {
           index="createdAt"
           categories={["value"]}
           colors={["orange"]}
+          curveType={"monotone"}
           // valueFormatter={dataFormatter}
           autoMinValue={true}
           maxValue={100000}

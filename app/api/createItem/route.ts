@@ -33,6 +33,7 @@ export async function POST(req: Request) {
       },
     });
 
+    // @ts-ignore
     const assetSum = asset.reduce((acc, b) => acc + parseInt(b.value), 0);
     const liabilitySum = liabilities.reduce(
       (acc, b) => acc + parseInt(b.value),

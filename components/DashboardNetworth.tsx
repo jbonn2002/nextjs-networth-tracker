@@ -5,6 +5,17 @@ import Linechart from "./LineChart";
 import { getAuthSession } from "@/lib/auth";
 import { db } from "@/lib/db";
 
+interface Items {
+  id: string;
+  createdAt: Date;
+  name: string;
+  type: string;
+  description: string;
+  value: string;
+  networth: string;
+  creatorId: string;
+}
+
 const dollarFormatter = (value: number) =>
   `$ ${Intl.NumberFormat("us").format(value).toString()}`;
 
@@ -26,7 +37,7 @@ const DashboardNetworth = async () => {
     },
   });
 
-  const transformedData = items.map((item) => {
+  const transformedData = items.map((item: Items) => {
     const date = new Date(item.createdAt);
     // @ts-ignore
     item.createdAt = formatDate.format(date);

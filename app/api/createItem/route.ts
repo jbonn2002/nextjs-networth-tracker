@@ -34,11 +34,11 @@ export async function POST(req: Request) {
     });
 
     const assetSum = asset.reduce(
-      (acc: number, b) => acc + parseInt(b.value),
+      (acc: number, b: { value: string }) => acc + parseInt(b.value),
       0
     );
     const liabilitySum = liabilities.reduce(
-      (acc: number, b) => acc + parseInt(b.value),
+      (acc: number, b: { value: string }) => acc + parseInt(b.value),
       0
     );
     const networthValue = (assetSum - liabilitySum).toString();

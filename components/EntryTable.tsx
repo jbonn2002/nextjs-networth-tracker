@@ -11,6 +11,17 @@ import Currency from "./Currency";
 import { db } from "@/lib/db";
 import { getAuthSession } from "@/lib/auth";
 
+interface Items {
+  id: string;
+  createdAt: Date;
+  name: string;
+  type: string;
+  description: string;
+  value: string;
+  networth: string;
+  creatorId: string;
+}
+
 const EntryTable = async () => {
   const session = await getAuthSession();
 
@@ -35,7 +46,7 @@ const EntryTable = async () => {
         </TableRow>
       </TableHead>
       <TableBody>
-        {items.map((item) => (
+        {items.map((item: Items) => (
           <TableRow key={item.id}>
             <TableCell>{item.name}</TableCell>
             <TableCell>

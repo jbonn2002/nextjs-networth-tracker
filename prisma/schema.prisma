@@ -57,6 +57,7 @@ model Item {
   type        String
   description String
   value       String
+  networth    String
   creator     User     @relation(fields: [creatorId], references: [id])
   creatorId   String
 }

@@ -4,6 +4,12 @@ import { db } from "@/lib/db";
 export async function GET(req: Request) {
   const session = await getAuthSession();
 
+  const formatDate = new Intl.DateTimeFormat("en-US", {
+    month: "short",
+    year: "numeric",
+    day: "numeric",
+  });
+
   try {
     const asset = await db.item.findMany({
       where: {
@@ -28,17 +34,26 @@ export async function GET(req: Request) {
       },
     });
 
+    const allItems = await db.item.findMany({
+      where: {
+        creatorId: session?.user.id,
+      },
+    });
+
     const assetSum = asset.reduce((acc, b) => acc + parseInt(b.value), 0);
     const liabilitySum = liabilities.reduce(
       (acc, b) => acc + parseInt(b.value),
       0
     );
-    const networth = (assetSum - liabilitySum).toString();
+    const networthValue = (assetSum - liabilitySum).toString();
 
-    const test = asset.map((item) => {
+    const test = allItems.map((item) => {
+      const date = new Date(item.createdAt);
+      // @ts-ignore
+      item.createdAt = formatDate.format(date);
       return {
-        ...item,
-        networth,
+        item,
+        networth: networthValue,
       };
     });
 

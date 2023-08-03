@@ -11,11 +11,16 @@ import {
 } from "@tremor/react";
 import Linechart from "./LineChart";
 
-const dataFormatter = (number: number) => {
-  return "$ " + Intl.NumberFormat("us").format(number).toString();
-};
-const numberFormatter = (value: number) =>
-  Intl.NumberFormat("us").format(value).toString();
+interface Items {
+  id: string;
+  createdAt: Date;
+  name: string;
+  type: string;
+  description: string;
+  value: string;
+  networth: string;
+  creatorId: string;
+}
 
 const formatDate = new Intl.DateTimeFormat("en-US", {
   month: "short",
@@ -33,13 +38,15 @@ const AssetCard = async () => {
     },
   });
 
-  const transformedData = items.map((item) => {
+  const transformedData = items.map((item: Items) => {
     const date = new Date(item.createdAt);
+
     // @ts-ignore
     item.createdAt = formatDate.format(date);
 
     return item;
   });
+
   return (
     <Card>
       <Flex alignItems="start">

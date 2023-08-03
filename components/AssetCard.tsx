@@ -10,6 +10,7 @@ import {
   Text,
 } from "@tremor/react";
 import Linechart from "./LineChart";
+import { Item } from "@prisma/client";
 
 const dataFormatter = (number: number) => {
   return "$ " + Intl.NumberFormat("us").format(number).toString();
@@ -33,7 +34,7 @@ const AssetCard = async () => {
     },
   });
 
-  const transformedData = items.map((item) => {
+  const transformedData = items.map((item: Item) => {
     const date = new Date(item.createdAt);
     // @ts-ignore
     item.createdAt = formatDate.format(date);

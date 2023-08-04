@@ -32,9 +32,9 @@ const NavItems = () => {
               : `https://nextjs-networth-tracker.vercel.app/${slug}`
           }
           className={cn(
-            "z-10 rounded-full px-4 py-1.5 text-sm font-medium capitalize text-white/75 transition-colors ease-out hover:text-green-400",
+            "z-10 rounded-full px-4 py-1.5 text-sm font-medium capitalize text-white/75 transition-colors ease-out hover:text-green-400/75",
             {
-              "text-black": selectedLayout === slug,
+              "text-green-400": selectedLayout === slug,
             }
           )}
         >

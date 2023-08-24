@@ -17,7 +17,6 @@ export default function Home() {
         streamlined process of checking your assets, liabitlites and net worth
       </p>
       <GetStarted />
-      <Footer />
     </section>
   );
 }

@@ -1,9 +1,6 @@
 import Features from "@/components/Features";
-import Footer from "@/components/Footer";
-import FrontPageChart from "@/components/FrontPageChart";
 import GetStarted from "@/components/GetStarted";
-import { getAuthSession } from "@/lib/auth";
-import Image from "next/image";
+import OpenSource from "@/components/OpenSource";
 
 export default function Home() {
   return (
@@ -26,6 +23,7 @@ export default function Home() {
         Features.
       </h2>
       <Features />
+      <OpenSource />
     </section>
   );
 }

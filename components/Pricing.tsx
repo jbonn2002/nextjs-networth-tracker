@@ -198,7 +198,7 @@ const Pricing = () => {
           pricing
         </h1>
         <p className="mt-5 text-white sm:text-lg">
-          Shorten your links without breaking your bank. <br />
+          Keep track of your networth and financial journey. <br />
           Start for free, no credit card required.
         </p>
       </div>

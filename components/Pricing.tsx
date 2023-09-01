@@ -37,7 +37,7 @@ const pricingItems = [
         ),
       },
       { text: "lorem ipsum lorem", neutral: true },
-      { text: "lorem ipsum lorem", neutral: true },
+
       {
         text: "lorem ipsum lorem",
         footnote: (
@@ -60,12 +60,6 @@ const pricingItems = [
         ),
         negative: true,
       },
-      {
-        text: "lorem ipsum lorem",
-        negative: true,
-      },
-      { text: "lorem ipsum lorem", negative: true },
-      { text: "lorem ipsum lorem", negative: true },
     ],
     cta: "Start for free",
   },
@@ -75,9 +69,7 @@ const pricingItems = [
     quota: 1000,
     features: [
       { text: "Lorem ipsum lorem" },
-      {
-        text: "Lorem ipsum lorem",
-      },
+
       {
         text: "Lorem ipsum lorem",
       },
@@ -91,18 +83,7 @@ const pricingItems = [
           />
         ),
       },
-      { text: "Lorem ipsum lorem" },
-      { text: "Lorem ipsum lorem" },
-      {
-        text: "Lorem ipsum lorem",
-        footnote: (
-          <SimpleTooltipContent
-            title="Redirect vistors that land on the root of your domain (e.g. yourdomain.com) to a page of your choice."
-            cta="Learn more."
-            href="/help/article/how-to-redirect-root-domain"
-          />
-        ),
-      },
+
       {
         text: "Lorem ipsum lorem",
         footnote: (
@@ -131,9 +112,7 @@ const pricingItems = [
       {
         text: "Lorem ipsum lorem",
       },
-      {
-        text: "Lorem ipsum lorem",
-      },
+
       {
         text: "Lorem ipsum lorem",
         footnote: (
@@ -146,16 +125,7 @@ const pricingItems = [
       },
       { text: "Lorem ipsum lorem" },
       { text: "Lorem ipsum lorem" },
-      {
-        text: "Lorem ipsum lorem",
-        footnote: (
-          <SimpleTooltipContent
-            title="Redirect vistors that land on the root of your domain (e.g. yourdomain.com) to a page of your choice."
-            cta="Learn more."
-            href="/help/article/how-to-redirect-root-domain"
-          />
-        ),
-      },
+
       {
         text: "Lorem ipsum lorem",
         footnote: (
@@ -166,11 +136,7 @@ const pricingItems = [
           />
         ),
       },
-      {
-        text: "Lorem ipsum lorem",
-        footnote: "Under development. ETA: September 2023",
-      },
-      { text: "Lorem ipsum lorem" },
+
       {
         text: "Lorem ipsum lorem",
         footnote: "Email & chat support within 24 hours.",

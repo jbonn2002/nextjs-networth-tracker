@@ -79,7 +79,7 @@ export default function Features() {
   const [selected, setSelected] = useState(0);
   return (
     <>
-      <div className="flex mb-14 mt-10">
+      <div className="mb-14 mt-10 lg:flex">
         <div className="mx-auto block h-fit max-w-sm rounded-2xl  border-[1px] bg-white p-2 sm:w-96 lg:ml-[-50px]">
           {features.map((feature, index) => {
             const isSelected = index === selected;

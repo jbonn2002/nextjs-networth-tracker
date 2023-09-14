@@ -1,9 +1,7 @@
-import { useQuery } from "@tanstack/react-query";
-import { Card, Text, Title } from "@tremor/react";
-import axios from "axios";
-import Linechart from "./LineChart";
 import { getAuthSession } from "@/lib/auth";
 import { db } from "@/lib/db";
+import { Card, Text, Title } from "@tremor/react";
+import Linechart from "./LineChart";
 
 interface Items {
   id: string;
@@ -15,12 +13,6 @@ interface Items {
   networth: string;
   creatorId: string;
 }
-
-const dollarFormatter = (value: number) =>
-  `$ ${Intl.NumberFormat("us").format(value).toString()}`;
-
-const numberFormatter = (value: number) =>
-  `${Intl.NumberFormat("us").format(value).toString()}`;
 
 const formatDate = new Intl.DateTimeFormat("en-US", {
   month: "short",
@@ -44,8 +36,6 @@ const DashboardNetworth = async () => {
 
     return item;
   });
-
-  console.log(items);
 
   return (
     <Card>

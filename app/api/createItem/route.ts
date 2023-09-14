@@ -41,6 +41,7 @@ export async function POST(req: Request) {
       (acc: number, b: { value: string }) => acc + parseInt(b.value),
       0
     );
+
     const networthValue = (assetSum - liabilitySum).toString();
 
     const count = await db.item.count();

@@ -48,10 +48,6 @@ const UserAccountNav: FC<UserAccountNavProps> = ({ user }) => {
           <Link href="/create">Create Asset/Liability</Link>
         </DropdownMenuItem>
 
-        <DropdownMenuItem asChild>
-          <Link href="/settings">Settings</Link>
-        </DropdownMenuItem>
-
         <DropdownMenuSeparator />
 
         <DropdownMenuItem

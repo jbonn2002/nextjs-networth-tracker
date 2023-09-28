@@ -1,4 +1,4 @@
-// "use server";
+"use client";
 
 import { FC } from "react";
 import { LineChart, LineChartProps } from "@tremor/react";
@@ -15,7 +15,8 @@ const Linechart: FC<LineChartProps> = ({ ...props }) => {
       colors={props.colors}
       curveType={props.curveType}
       maxValue={props.maxValue}
-      valueFormatter={props.valueFormatter}
+      valueFormatter={dollarFormatter}
+      yAxisWidth={95}
     />
   );
 };

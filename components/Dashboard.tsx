@@ -12,15 +12,14 @@ import DashboardNetworth from "./DashboardNetworth";
 import DebtCard from "./DebtCard";
 import EntryTable from "./EntryTable";
 import LiabilityCard from "./LiabilityCard";
-import { getAuthSession } from "@/lib/auth";
 
 const Dashboard = async () => {
   return (
     <main>
       <TabGroup className="mt-6">
         <TabList>
-          <Tab className="text-white">Page 1</Tab>
-          <Tab className="text-white">Page 2</Tab>
+          <Tab className="text-white">Dashboard Charts</Tab>
+          <Tab className="text-white">Asset/Liablity Table</Tab>
         </TabList>
         <TabPanels>
           <TabPanel>

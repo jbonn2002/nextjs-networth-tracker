@@ -1,0 +1,54 @@
+/* 
+  Author's note: The styles for this gradient grid background is heavily inspired by
+  Paco & Rauno's amazing CMDK site (https://cmdk.paco.me) – all credits go to them! 
+*/
+
+.main {
+  width: 100vw;
+  min-height: 100vh;
+  position: fixed;
+  z-index: -1;
+  display: flex;
+  justify-content: center;
+  padding: 120px 24px 160px 24px;
+  pointer-events: none;
+}
+
+.main:before {
+  position: absolute;
+  content: "";
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  top: 0;
+}
+
+.main:after {
+  content: "";
+  background-image: url("/grid.svg");
+  z-index: 1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  opacity: 0.4;
+}
+
+.content {
+  z-index: 3;
+  width: 100%;
+  max-width: 640px;
+  background-image: radial-gradient(
+    circle,
+    rgba(154, 210, 130, 1) 9%,
+    rgba(86, 139, 83, 1) 28%,
+    rgba(127, 176, 147, 1) 62%
+  );
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  filter: blur(100px) saturate(150%);
+  top: 80px;
+  opacity: 0.15;
+}

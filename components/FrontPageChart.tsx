@@ -20,7 +20,7 @@ export default function FrontPageChart() {
             <Metric>$149,940</Metric>
           </div>
           <BadgeDelta deltaType="moderateIncrease" className="pr-2">
-            13.2%
+            68%
           </BadgeDelta>
         </Flex>
         <Flex className="mt-4">
@@ -35,7 +35,7 @@ export default function FrontPageChart() {
             <Text>Liabilities</Text>
             <Metric>$20,699</Metric>
           </div>
-          <BadgeDelta deltaType="moderateDecrease">3.2%</BadgeDelta>
+          <BadgeDelta deltaType="moderateDecrease">34%</BadgeDelta>
         </Flex>
         <Flex className="mt-4">
           <Text className="truncate">34% ($7,037)</Text>

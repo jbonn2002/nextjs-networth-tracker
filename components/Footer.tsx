@@ -30,7 +30,7 @@ export default function Footer() {
     domain === "dub.sh" ? href : `https://dub.sh${href}`;
 
   return (
-    <footer className="mt-20 w-full border-t text-white bg-bgGray border-zinc-300 py-8 backdrop-blur-lg">
+    <footer className="mt-20 p-10 border-t text-white bg-bgGray border-zinc-300 py-8 backdrop-blur-lg">
       <div className="xl:grid xl:grid-cols-5 xl:gap-8">
         <div className="space-y-8 xl:col-span-2">
           <Link href={createHref("/")}>

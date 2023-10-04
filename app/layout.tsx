@@ -28,8 +28,8 @@ export default function RootLayout({
 
           <div className="container max-w-7xl mx-auto h-full pt-12">
             {children}
-            <Footer />
           </div>
+          <Footer />
         </Providers>
         <Toaster />
       </body>

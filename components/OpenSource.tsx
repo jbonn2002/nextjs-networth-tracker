@@ -55,6 +55,7 @@ export function OSSSection({ stars }: { stars: number }) {
                 <CountingNumbers
                   value={stars}
                   className="font-display font-medium text-white"
+                  currency={false}
                 />
               </div>
             </div>

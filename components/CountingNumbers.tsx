@@ -10,9 +10,11 @@ export default function CountingNumbers({
   start = reverse ? 1000 : 0,
   interval = 10,
   duration = 800,
+  currency,
 }: {
   value: number;
   className: string;
+  currency: boolean;
   reverse?: boolean;
   start?: number;
   interval?: number;
@@ -61,8 +63,16 @@ export default function CountingNumbers({
   }, [isInView]);
 
   return (
-    <p className={className} ref={ref}>
-      {Intl.NumberFormat().format(number)}
-    </p>
+    <>
+      {currency === true ? (
+        <p className={className} ref={ref}>
+          ${Intl.NumberFormat().format(number)}
+        </p>
+      ) : (
+        <p className={className} ref={ref}>
+          {Intl.NumberFormat().format(number)}
+        </p>
+      )}
+    </>
   );
 }

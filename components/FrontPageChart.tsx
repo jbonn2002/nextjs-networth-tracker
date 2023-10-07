@@ -8,6 +8,7 @@ import {
   ProgressBar,
   Text,
 } from "@tremor/react";
+import CountingNumbers from "./CountingNumbers";
 
 // Single KPI card in the demo dashboard with sample inputs
 export default function FrontPageChart() {
@@ -17,7 +18,9 @@ export default function FrontPageChart() {
         <Flex alignItems="start">
           <div>
             <Text>Assets</Text>
-            <Metric>$149,940</Metric>
+            <Metric>
+              <CountingNumbers value={149940} currency={true} className="" />
+            </Metric>
           </div>
           <BadgeDelta deltaType="moderateIncrease" className="pr-2">
             68%
@@ -33,7 +36,9 @@ export default function FrontPageChart() {
         <Flex alignItems="start">
           <div>
             <Text>Liabilities</Text>
-            <Metric>$20,699</Metric>
+            <Metric>
+              <CountingNumbers value={20699} currency={true} className="" />
+            </Metric>
           </div>
           <BadgeDelta deltaType="moderateDecrease">34%</BadgeDelta>
         </Flex>

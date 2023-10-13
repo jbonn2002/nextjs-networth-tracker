@@ -28,7 +28,7 @@ const Navbar = async () => {
   const session = await getAuthSession();
 
   return (
-    <div className="fixed top-0 inset-x-0 border-b  text-white bg-bgGray border-zinc-300 z-[10] py-2">
+    <div className="fixed top-0 inset-x-0 border-b  text-white bg-bgGray bg-[url('/grid.svg')] border-zinc-300 z-[10] py-2">
       <div className="container max-w-7xl h-full mx-auto flex items-center gap-2">
         <Link href="/" className="flex gap-2 items-center">
           <Icons.logo className="h-8 w-8 sm:h-6 sm:w-6" />

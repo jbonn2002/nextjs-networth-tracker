@@ -1,14 +1,6 @@
 import { getAuthSession } from "@/lib/auth";
 import { db } from "@/lib/db";
-import {
-  AreaChart,
-  BadgeDelta,
-  Card,
-  DeltaType,
-  Flex,
-  Metric,
-  Text,
-} from "@tremor/react";
+import { BadgeDelta, Card, Flex, Text } from "@tremor/react";
 import Linechart from "./LineChart";
 
 interface Items {

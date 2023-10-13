@@ -1,15 +1,6 @@
 import { getAuthSession } from "@/lib/auth";
 import { db } from "@/lib/db";
-import { formSchemaReq } from "@/lib/validators/formSchema";
-import {
-  AreaChart,
-  BadgeDelta,
-  Card,
-  DeltaType,
-  Flex,
-  Metric,
-  Text,
-} from "@tremor/react";
+import { BadgeDelta, Card, Flex, Text } from "@tremor/react";
 import Linechart from "./LineChart";
 
 interface Items {
@@ -22,12 +13,6 @@ interface Items {
   networth: string;
   creatorId: string;
 }
-
-const dataFormatter = (number: number) => {
-  return "$ " + Intl.NumberFormat("us").format(number).toString();
-};
-const numberFormatter = (value: number) =>
-  Intl.NumberFormat("us").format(value).toString();
 
 const formatDate = new Intl.DateTimeFormat("en-US", {
   month: "short",

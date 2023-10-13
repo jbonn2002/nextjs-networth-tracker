@@ -1,9 +1,7 @@
 import { getAuthSession } from "@/lib/auth";
 import Link from "next/link";
-import UserAccountNav from "./UserAccountNav";
-import { Button, buttonVariants } from "./ui/Button";
-import { Github } from "lucide-react";
 import FrontPageChart from "./FrontPageChart";
+import { buttonVariants } from "./ui/Button";
 
 const GetStarted = async () => {
   const session = await getAuthSession();

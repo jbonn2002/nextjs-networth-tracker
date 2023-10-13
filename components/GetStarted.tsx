@@ -31,14 +31,6 @@ const GetStarted = async () => {
             Get Started
           </Link>
         )}
-        <Link
-          href="https://github.com/jbonn2002/nextjs-networth-tracker"
-          target="_blank"
-          className={buttonVariants({ variant: "outline" })}
-        >
-          <Github />
-          Star on GitHub
-        </Link>
       </div>
       <div className="mt-16 mx-auto w-full max-w-xl flex justify-center items-center gap-2">
         <FrontPageChart />

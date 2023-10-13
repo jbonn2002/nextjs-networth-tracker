@@ -2,16 +2,15 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
-// import Confetti from "react-dom-confetti";
+
 import XCircleFill from "./logos/XCircleFill";
 import CheckCircleFill from "./logos/CheckCircleFill";
 import MaxWidthWrapper from "./MaxWidthWrapper";
 import Switch from "./ui/Switch";
 import Tooltip, { SimpleTooltipContent } from "./ui/Tooltip";
-// import { PLANS } from "#/lib/stripe/utils";
+
 import { cn, nFormatter } from "@/lib/utils";
 import { HelpCircle, MinusCircle } from "lucide-react";
-// import { APP_DOMAIN } from "#/lib/constants";
 
 const pricingItems = [
   {

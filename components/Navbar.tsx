@@ -1,6 +1,5 @@
 import { getAuthSession } from "@/lib/auth";
 import Link from "next/link";
-import { useParams, useSelectedLayoutSegment } from "next/navigation";
 import { Icons } from "./Icons";
 import NavItems from "./NavItems";
 import UserAccountNav from "./UserAccountNav";

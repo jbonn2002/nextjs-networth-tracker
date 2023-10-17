@@ -73,7 +73,7 @@ const CreateForm = () => {
         <div>
           <p className="text-lg font-medium">Name</p>
           <p className="text-xs pb-2">
-            Community names including capitalization cannot be changed.
+            Names including capitalization cannot be changed.
           </p>
         </div>
         <FormField

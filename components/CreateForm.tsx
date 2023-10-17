@@ -13,7 +13,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
 import CurrencyInput from "react-currency-input-field";
 import { useForm } from "react-hook-form";
 import SelectMenu from "./SelectMenu";
@@ -32,7 +31,6 @@ const CreateForm = () => {
     },
   });
 
-  const [input, setInput] = useState<string>("");
   const router = useRouter();
 
   const { mutate: createItem, isLoading } = useMutation({
@@ -47,7 +45,7 @@ const CreateForm = () => {
       const { data } = await axios.post("/api/createItem", payload);
       return data;
     },
-    onSuccess: (variables) => {
+    onSuccess: () => {
       router.push("/dashboard");
 
       router.refresh();

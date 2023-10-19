@@ -8,10 +8,7 @@ import LinkedIn from "./logos/LinkedIn";
 import Twitter from "./logos/Twitter";
 
 const navigation = {
-  product: [
-    { name: "Pricing", href: "/pricing" },
-    { name: "Changelog", href: "/changelog" },
-  ],
+  product: [{ name: "Pricing", href: "/pricing" }],
   company: [{ name: "Blog", href: "/blog" }],
   resources: [
     { name: "Help Center", href: "/help" },

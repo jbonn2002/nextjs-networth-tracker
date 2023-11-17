@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Icons } from "./Icons";
 import UserAuthForm from "./UserAuthForm";
 
-const SignIn = () => {
+const SignUp = () => {
   return (
     <div className="container mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[400px]">
       <div className="flex flex-col space-y-2 text-center">
@@ -18,12 +18,12 @@ const SignIn = () => {
         <UserAuthForm />
 
         <p className="px-8 text-center text-sm text-white">
-          New to Breadit?{" "}
+          Already a user?{" "}
           <Link
-            href="/sign-up"
+            href="/sign-in"
             className="hover:text-green-400 text-sm underline underline-offset-4"
           >
-            Sign up
+            Sign In
           </Link>
         </p>
       </div>
@@ -31,4 +31,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export default SignUp;

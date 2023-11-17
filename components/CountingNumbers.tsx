@@ -65,13 +65,13 @@ export default function CountingNumbers({
   return (
     <>
       {currency === true ? (
-        <p className={className} ref={ref}>
+        <span className={className} ref={ref}>
           ${Intl.NumberFormat().format(number)}
-        </p>
+        </span>
       ) : (
-        <p className={className} ref={ref}>
+        <span className={className} ref={ref}>
           {Intl.NumberFormat().format(number)}
-        </p>
+        </span>
       )}
     </>
   );

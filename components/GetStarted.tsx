@@ -13,7 +13,7 @@ const GetStarted = async () => {
             href="/dashboard"
             className={buttonVariants({
               variant: "outline",
-              className: "text-green-400 bg-black border-none",
+              className: "bg-black border-none",
             })}
           >
             Get Started
@@ -23,7 +23,7 @@ const GetStarted = async () => {
             href="/sign-in"
             className={buttonVariants({
               variant: "outline",
-              className: "text-green-400 bg-black border-none",
+              className: "bg-black border-none",
             })}
           >
             Get Started
